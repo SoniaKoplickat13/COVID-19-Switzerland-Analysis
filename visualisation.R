@@ -137,12 +137,12 @@ plot_cantons <- switzerland_canton_comparison %>%
   theme_minimal(base_size = 12)
 
 # ---------------------------
-# 8. Combined dashboard figure
+# 8. Combined dashboard
 # ---------------------------
 combined_dashboard <- (plot_cases / plot_deaths) / (plot_vaccinations / plot_cantons)
 
 # ---------------------------
-# 9. Save plots
+# 9. Saving Plots
 # ---------------------------
 ggsave("plots/01_cases_over_time.png", plot_cases, width = 10, height = 6, dpi = 300)
 ggsave("plots/02_deaths_over_time.png", plot_deaths, width = 10, height = 6, dpi = 300)
@@ -151,7 +151,7 @@ ggsave("plots/04_canton_comparison.png", plot_cantons, width = 10, height = 8, d
 ggsave("plots/05_combined_dashboard.png", combined_dashboard, width = 14, height = 14, dpi = 300)
 
 # ---------------------------
-# 10. Console summary
+# 10. Summary
 # ---------------------------
 latest_total_cases <- switzerland_national %>%
   filter(!is.na(total_cases)) %>%
